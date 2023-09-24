@@ -2,26 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.button-shadow {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.localisation-filter {
+  fill: rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.main-bg {
+  /*background: url("/Cloud-background.png"), lightgray 50% / cover no-repeat;*/
+  background-image: linear-gradient(
+      rgba(30, 33, 58, 0.9),
+      rgba(30, 33, 58, 0.9)
+    ),
+    url("/Cloud-background.png");
+  /*background-origin: content-box;*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 160% 100%;
+
+  @apply bg-blue1;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply text-gray2 font-medium leading-normal;
+}
+
+@keyframes slideInLeftAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeftAnimation {
+  0% {
+    opacity: 1;
+    transform: translateX(-12%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeftAnimation 0.3s ease-in-out forwards;
+}
+
+.animate-slide-out-left {
+  animation: slideOutLeftAnimation 0.5s ease-in-out forwards;
 }
