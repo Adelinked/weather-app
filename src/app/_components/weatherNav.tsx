@@ -122,8 +122,8 @@ export const WeatherNav = () => {
               try {
                 const res = await getWeatherData(c.lat, c.lon, system);
                 const data = await res.json();
-                if (data?.current?.temp)
-                  setForcastData(getInterestingData(data));
+
+                setForcastData(data);
               } catch (error) {
                 throw new Error("Error fetching data");
               } finally {

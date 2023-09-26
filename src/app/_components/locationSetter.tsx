@@ -27,7 +27,7 @@ export const LocationSetter = () => {
             try {
               const res = await getWeatherData(lat, lon, system);
               const data = await res.json();
-              if (data?.current?.temp) setForcastData(data);
+              setForcastData(data);
             } catch (error) {
               throw new Error("Error fetching data");
             } finally {

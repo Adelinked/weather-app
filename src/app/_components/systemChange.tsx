@@ -15,8 +15,11 @@ const ChangeButton = ({ title }: { title: string }) => {
     setFirstRender,
   } = useWeatherStore();
 
-  const selectedStyle =
-    system === title ? "bg-white text-blue3" : "bg-blue1 text-gray2";
+  const selectedStyle = !pending
+    ? system === title
+      ? "bg-white text-blue3"
+      : "bg-blue1 text-gray2"
+    : "";
   return (
     <button
       onClick={async () => {
@@ -34,7 +37,7 @@ const ChangeButton = ({ title }: { title: string }) => {
           setPending(false);
         }
       }}
-      className={`flex items-center justify-center w-10 h-10 bg-blue1 rounded-full ${selectedStyle} mr-3 disabled:text-gray5`}
+      className={`flex items-center justify-center w-10 h-10 bg-blue1 rounded-full ${selectedStyle} mr-3  disabled:text-gray5`}
       disabled={pending}
     >
       {title === "Celcius" ? "°C" : "°F"}
