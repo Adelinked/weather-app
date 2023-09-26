@@ -1,13 +1,22 @@
 "use client";
-import { FaTimes } from "react-icons/fa";
 import { useWeatherStore, useCitiesStore, useWeatherMenuStore } from "@/store";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { LiaTimesSolid } from "react-icons/lia";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useState, useRef } from "react";
 import Spinner from "./spinner";
+import { getInterestingData, getWeatherData } from "@/utils";
+
 export const WeatherNav = () => {
-  const { setCity, pending, firstRender, setFirstRender } = useWeatherStore();
+  const {
+    setCity,
+    pending,
+    firstRender,
+    setFirstRender,
+    setPending,
+    setForcastData,
+    system,
+  } = useWeatherStore();
   const { displayMenu, setDisplayMenu } = useWeatherMenuStore();
   const { addCity, cities } = useCitiesStore();
 
@@ -63,6 +72,7 @@ export const WeatherNav = () => {
               return;
             }
             try {
+              setPending(true);
               const data = await fetch(
                 "/api/getCityPosition?city=" + localCityRef.current
               ).then((res) => res.json());
@@ -89,6 +99,8 @@ export const WeatherNav = () => {
             } catch (e) {
               setError("Can't find city");
               console.error("Error fetching data:", e);
+            } finally {
+              setPending(false);
             }
           }}
         >
@@ -103,9 +115,21 @@ export const WeatherNav = () => {
           <div
             key={c.name}
             className="flex justify-between items-center pl-3 pr-[10px] md:pr-[8px] py-[22px] mb-[22px] group cursor-pointer border-[1px] border-blue1 hover:border-gray5  overflow-y-auto"
-            onClick={() => {
+            onClick={async () => {
               if (firstRender) setFirstRender(false);
+              setPending(true);
               setCity(c.name, c.lat, c.lon);
+              try {
+                const res = await getWeatherData(c.lat, c.lon, system);
+                const data = await res.json();
+                if (data?.current?.temp)
+                  setForcastData(getInterestingData(data));
+              } catch (error) {
+                throw new Error("Error fetching data");
+              } finally {
+                setPending(false);
+              }
+
               localCityRef.current = "";
               setDisplayMenu(false);
             }}

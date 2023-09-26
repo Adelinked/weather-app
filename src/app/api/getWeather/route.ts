@@ -1,3 +1,4 @@
+import { getInterestingData, testData } from "@/utils";
 import { NextResponse } from "next/server";
 
 const apiKey = process.env.OPENWEAHER_API_KEY;
@@ -13,8 +14,11 @@ export async function GET(request: Request) {
         system == "Fahrenheit" ? "imperial" : "metric"
       }&appid=${apiKey}`
     ).then((res) => res.json());
-    return NextResponse.json(forcastData);
+    /*const forcastData = await new Promise((res) =>
+      setTimeout(() => res(testData), 200)
+    );*/
+    return NextResponse.json(getInterestingData(forcastData));
   } catch (e) {
-    return NextResponse.json({ error: e });
+    return NextResponse.error();
   }
 }

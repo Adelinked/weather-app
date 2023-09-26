@@ -1,18 +1,9 @@
 import { TiWeatherPartlySunny } from "react-icons/ti";
 
-import clsx from "clsx";
-import { SystemChangeSkeleton } from "./systemChangeSkeleton";
+import { SystemChange } from "../systemChange";
 const OneDaySkeleton = () => {
   return (
-    <div
-      className={clsx(
-        "bg-blue1 flex flex-col items-center w-[120px] h-[177px] py-[18px]",
-        {
-          "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
-            true,
-        }
-      )}
-    >
+    <div className="bg-blue1 flex flex-col items-center w-[120px] h-[177px] py-[18px] relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent">
       <p className="mb-[9px] bg-gray5 w-[90%] h-5 rounded-xl"></p>
 
       <div className=" relative w-[54px] h-[62px] mb-8">
@@ -32,7 +23,7 @@ export const DetailsSkeleton = () => {
 
   return (
     <div className="w-full  md:pr-[60px]">
-      <SystemChangeSkeleton />
+      <SystemChange />
       <div className="w-full flex flex-wrap pl-[54px] md:pl-[100px] xl:pl-[122px] gap-[26px] md:mt-[66px]  pb-[51px] md:pb[72px] ">
         {arr.map((day) => (
           <OneDaySkeleton key={day} />
@@ -53,15 +44,7 @@ export const DetailsSkeleton = () => {
 
 const WindSkeleton = () => {
   return (
-    <div
-      className={clsx(
-        "flex  flex-col items-center text-2xl w-[328px] h-[204px] pt-[22px] bg-blue1",
-        {
-          "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
-            true,
-        }
-      )}
-    >
+    <div className="flex  flex-col items-center text-2xl w-[328px] h-[204px] pt-[22px] bg-blue1 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent">
       <p className="pb-[6px]"> Wind Status</p>
 
       <div className="flex items-center mb-6 w-20 h-16 bg-gray5 rounded-xl"></div>
@@ -73,15 +56,7 @@ const WindSkeleton = () => {
 
 const HumiditySkeleton = () => {
   return (
-    <div
-      className={clsx(
-        "flex flex-col items-center text-2xl w-[328px] h-[204px] pt-[22px] bg-blue1",
-        {
-          "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
-            true,
-        }
-      )}
-    >
+    <div className="flex flex-col items-center text-2xl w-[328px] h-[204px] pt-[22px] bg-blue1 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent">
       <p className="pb-[11px]">Humidity</p>
 
       <div className="flex items-center mb-5 w-20 h-16 bg-gray5 rounded-xl"></div>
@@ -93,15 +68,7 @@ const HumiditySkeleton = () => {
 
 const VisibilitySkeleton = () => {
   return (
-    <div
-      className={clsx(
-        "flex  flex-col items-center text-2xl w-[328px] h-[159px] pt-[22px] bg-blue1",
-        {
-          "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
-            true,
-        }
-      )}
-    >
+    <div className="flex  flex-col items-center text-2xl w-[328px] h-[159px] pt-[22px] bg-blue1 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent">
       <p className="pb-[6px]">Visibility</p>
 
       <div className="w-20 h-16 rounded-xl bg-gray5"></div>
@@ -111,15 +78,7 @@ const VisibilitySkeleton = () => {
 
 const PressureSkeleton = () => {
   return (
-    <div
-      className={clsx(
-        "flex  flex-col items-center text-2xl w-[328px] h-[159px] pt-[22px] bg-blue1",
-        {
-          "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
-            true,
-        }
-      )}
-    >
+    <div className="flex  flex-col items-center text-2xl w-[328px] h-[159px] pt-[22px] bg-blue1 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent">
       <p className="pb-[6px]">Air Pressure</p>
 
       <div className="w-20 h-16 rounded-xl bg-gray5"></div>

@@ -4,15 +4,7 @@ import clsx from "clsx";
 
 export const SummarySkeleton = () => {
   return (
-    <div
-      className={clsx(
-        "bg-blue1 flex flex-col items-center pb-[105px] md:pb-[52px]",
-        {
-          "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent":
-            true,
-        }
-      )}
-    >
+    <div className="bg-blue1 flex flex-col items-center pb-[105px] md:pb-[52px] relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent">
       <div className="main-bg w-full h-[350px] mt-4 flex items-center justify-center">
         <div className="relative w-[150px] h-[174px] md:w-[202px] md:h-[234px]">
           <TiWeatherPartlySunny className="w-full h-full text-gray5" />

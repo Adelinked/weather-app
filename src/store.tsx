@@ -31,7 +31,14 @@ const initialFocast = {
   windSpeed: 0,
   windDeg: 0,
   todayDate: "",
-  nextDays: [],
+  nextDays: [
+    {
+      weather: "",
+      max: 0,
+      min: 0,
+      date: "",
+    },
+  ],
 };
 
 export const useWeatherStore = create<{
